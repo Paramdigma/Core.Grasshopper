@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	
+  <PropertyGroup>
+    <TargetFramework>net462</TargetFramework>
+    <RootNamespace>Paramdigma.Core.Grasshopper</RootNamespace>
+    <Version>1.0</Version>
+    <Title>Paramdigma.Core.Grasshopper</Title>
+    <Description>Description of Paramdigma.Core.Grasshopper</Description>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Grasshopper" Version="6.16.19190.7001" IncludeAssets="compile;build" />
+    <PackageReference Include="Paramdigma.Core" Version="0.0.9" />
+  </ItemGroup>
+  
+</Project>
