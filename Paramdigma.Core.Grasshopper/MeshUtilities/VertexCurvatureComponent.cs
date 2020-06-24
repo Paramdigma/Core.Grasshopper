@@ -22,7 +22,7 @@ namespace Paramdigma.Core.Grasshopper.MeshUtilities
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddParameter(new HE_MeshParam(),"Half-Edge Mesh", "hE", "Half-Edge Mesh",GH_ParamAccess.item );
+            pManager.AddParameter(new MeshParam(),"Half-Edge Mesh", "hE", "Half-Edge Mesh",GH_ParamAccess.item );
         }
 
         /// <summary>

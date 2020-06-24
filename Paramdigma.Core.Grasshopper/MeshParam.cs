@@ -102,10 +102,10 @@ namespace Paramdigma.Core.Grasshopper
     /// <summary>
     /// Grasshopper GH_Param encapsulating a MeshGHData object.
     /// </summary>
-    public class HE_MeshParam: GH_Param<MeshGHData>
+    public class MeshParam: GH_Param<MeshGHData>
     {
         // We need to supply a constructor without arguments that calls the base class constructor.
-        public HE_MeshParam() : base("Half-edge mesh", "HE Mesh", "Half-edge mesh", "AR_Lib", "Params", GH_ParamAccess.item)
+        public MeshParam() : base("Half-edge mesh", "HE Mesh", "Half-edge mesh", "AR_Lib", "Params", GH_ParamAccess.item)
         {
 
         }
