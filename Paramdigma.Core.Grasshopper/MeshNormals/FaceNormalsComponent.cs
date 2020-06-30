@@ -43,7 +43,7 @@ namespace Paramdigma.Core.Grasshopper.MeshNormals
         protected override void SolveInstance(IGH_DataAccess DA)
         {
 
-            MeshGHData hE_MeshData = new MeshGHData();
+            MeshGhData hE_MeshData = new MeshGhData();
 
             if (!DA.GetData(0, ref hE_MeshData)) return;
 
@@ -77,23 +77,11 @@ namespace Paramdigma.Core.Grasshopper.MeshNormals
         /// <summary>
         /// Provides an Icon for the component.
         /// </summary>
-        protected override System.Drawing.Bitmap Icon
-        {
-            get
-            {
-                //You can add image files to your project resources and access them like this:
-                // return Resources.IconForThisComponent;
-                return null;
-                //return Properties.Resources.AR_Lib_FaceNormals;
-            }
-        }
+        protected override System.Drawing.Bitmap Icon => Properties.Resources.FaceNormals;
 
         /// <summary>
         /// Gets the unique ID for this component. Do not change this ID after release.
         /// </summary>
-        public override Guid ComponentGuid
-        {
-            get { return new Guid("5d7430f8-3718-4e7d-8f06-75f0c4e67333"); }
-        }
+        public override Guid ComponentGuid => new Guid("5d7430f8-3718-4e7d-8f06-75f0c4e67333");
     }
 }

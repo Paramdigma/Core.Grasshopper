@@ -41,7 +41,7 @@ namespace Paramdigma.Core.Grasshopper.MeshCurves
         /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            MeshGHData hE_MeshData = new MeshGHData();
+            MeshGhData hE_MeshData = new MeshGhData();
             List<double> scalarValues = new List<double>();
             string key = "sets1";
 
@@ -79,22 +79,11 @@ namespace Paramdigma.Core.Grasshopper.MeshCurves
         /// <summary>
         /// Provides an Icon for the component.
         /// </summary>
-        protected override System.Drawing.Bitmap Icon
-        {
-            get
-            {
-                //You can add image files to your project resources and access them like this:
-                // return Resources.IconForThisComponent;
-                return null;
-            }
-        }
+        protected override System.Drawing.Bitmap Icon => Properties.Resources.LevelGrad;
 
         /// <summary>
         /// Gets the unique ID for this component. Do not change this ID after release.
         /// </summary>
-        public override Guid ComponentGuid
-        {
-            get { return new Guid("ca57a248-054f-41f7-b7d2-d316d6db748a"); }
-        }
+        public override Guid ComponentGuid => new Guid("ca57a248-054f-41f7-b7d2-d316d6db748a");
     }
 }

@@ -4,14 +4,41 @@
     <e p="$PROJECT_DIR$" t="IncludeFlat">
       <e p="packages" t="ExcludeRecursive" />
       <e p="Paramdigma.Core.Grasshopper" t="IncludeRecursive">
+        <e p="AssemblyInfo.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
-        <e p="Class1.cs" t="Include" />
-        <e p="obj" t="ExcludeRecursive" />
-        <e p="packages.config" t="Include" />
-        <e p="Paramdigma.Core.Grasshopper.csproj" t="IncludeRecursive" />
-        <e p="Properties" t="Include">
-          <e p="AssemblyInfo.cs" t="Include" />
+        <e p="MeshCurves" t="Include">
+          <e p="LevelSetsComponent.cs" t="Include" />
+          <e p="MeshGradientComponent.cs" t="Include" />
+          <e p="StartDirGeodesic.cs" t="Include" />
         </e>
+        <e p="MeshNormals" t="Include">
+          <e p="FaceNormalsComponent.cs" t="Include" />
+          <e p="VertexNormalsComponent.cs" t="Include" />
+        </e>
+        <e p="MeshTopology" t="Include">
+          <e p="EdgeTopologyComponent.cs" t="Include" />
+          <e p="FaceTopologyComponent.cs" t="Include" />
+          <e p="MeshTopologyVEFComponent.cs" t="Include" />
+          <e p="VertexTopologyComponent.cs" t="Include" />
+        </e>
+        <e p="MeshUtilities" t="Include">
+          <e p="FaceOrthonormalBasesComponent.cs" t="Include" />
+          <e p="VertexCurvatureComponent.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net462" t="Include">
+              <e p="Paramdigma.Core.Grasshopper.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Paramdigma.Core.Grasshopper.csproj" t="IncludeRecursive" />
+        <e p="Paramdigma.Core.GrasshopperInfo.cs" t="Include" />
+        <e p="Params" t="Include">
+          <e p="MeshGhData.cs" t="Include" />
+          <e p="MeshParam.cs" t="Include" />
+        </e>
+        <e p="RhinoConvert.cs" t="Include" />
       </e>
       <e p="Paramdigma.Core.Grasshopper.sln" t="IncludeFlat" />
     </e>

@@ -131,7 +131,7 @@ namespace Paramdigma.Core.Grasshopper
         /// to store data in output parameters.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            MeshGHData hE_MeshData = new MeshGHData();
+            MeshGhData hE_MeshData = new MeshGhData();
 
             if (!DA.GetData(0, ref hE_MeshData)) return;
 
@@ -195,25 +195,13 @@ namespace Paramdigma.Core.Grasshopper
         /// Provides an Icon for every component that will be visible in the User Interface.
         /// Icons need to be 24x24 pixels.
         /// </summary>
-        protected override System.Drawing.Bitmap Icon
-        {
-            get
-            {
-                // You can add image files to your project resources and access them like this:
-                //return Resources.IconForThisComponent;
-                //return Properties.Resources.AR_Lib_VertexNormals;
-                return null;
-            }
-        }
+        protected override System.Drawing.Bitmap Icon => Properties.Resources.VertexNormals;
 
         /// <summary>
         /// Each component must have a unique Guid to identify it. 
         /// It is vital this Guid doesn't change otherwise old ghx files 
         /// that use the old ID will partially fail during loading.
         /// </summary>
-        public override Guid ComponentGuid
-        {
-            get { return new Guid("59ee78ea-be29-4fbf-8afa-9da3ef695361"); }
-        }
+        public override Guid ComponentGuid => new Guid("59ee78ea-be29-4fbf-8afa-9da3ef695361");
     }
 }

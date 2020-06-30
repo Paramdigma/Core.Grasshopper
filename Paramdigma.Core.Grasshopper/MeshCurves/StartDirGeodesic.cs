@@ -11,7 +11,7 @@ namespace Paramdigma.Core.Grasshopper.MeshCurves
         public StartDirGeodesic()
           : base("Geodesic P/V", "P/V geod",
               "Computes a geodesic curve on a triangular mesh given a starting point and a direction vector.",
-              "Paramdigma", "Mesh Curves")
+              "Paramdigma", "Curves")
         {
         }
 
@@ -39,7 +39,7 @@ namespace Paramdigma.Core.Grasshopper.MeshCurves
         /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            MeshGHData hE_MeshData = new MeshGHData();
+            MeshGhData hE_MeshData = new MeshGhData();
 
             if (!DA.GetData(0, ref hE_MeshData)) return;
 
@@ -55,23 +55,11 @@ namespace Paramdigma.Core.Grasshopper.MeshCurves
         /// <summary>
         /// Provides an Icon for the component.
         /// </summary>
-        protected override System.Drawing.Bitmap Icon
-        {
-            get
-            {
-                //You can add image files to your project resources and access them like this:
-                // return Resources.IconForThisComponent;
-                return null;
-                //return Properties.Resources.AR_Lib_GeodesicStartDir;
-            }
-        }
+        protected override System.Drawing.Bitmap Icon => Properties.Resources.GeodesicStartDir;
 
         /// <summary>
         /// Gets the unique ID for this component. Do not change this ID after release.
         /// </summary>
-        public override Guid ComponentGuid
-        {
-            get { return new Guid("13df0941-dd3f-49ff-a0d4-951839c886e5"); }
-        }
+        public override Guid ComponentGuid => new Guid("13df0941-dd3f-49ff-a0d4-951839c886e5");
     }
 }

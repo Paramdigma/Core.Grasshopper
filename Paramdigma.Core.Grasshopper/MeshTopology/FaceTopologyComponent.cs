@@ -11,7 +11,7 @@ namespace Paramdigma.Core.Grasshopper
         public FaceTopologyComponent()
           : base("Face Topology", "Face Topo",
               "Computes the face adjacency data for the given mesh",
-              "Paramdima", "Topology")
+              "Paramdigma", "Topology")
         {
         }
 
@@ -39,7 +39,7 @@ namespace Paramdigma.Core.Grasshopper
         /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
         protected override void SolveInstance(GH.Kernel.IGH_DataAccess DA)
         {
-            MeshGHData hE_MeshData = new MeshGHData();
+            MeshGhData hE_MeshData = new MeshGhData();
 
             if (!DA.GetData(0, ref hE_MeshData)) return;
 
@@ -74,23 +74,11 @@ namespace Paramdigma.Core.Grasshopper
         /// <summary>
         /// Provides an Icon for the component.
         /// </summary>
-        protected override System.Drawing.Bitmap Icon
-        {
-            get
-            {
-                //You can add image files to your project resources and access them like this:
-                // return Resources.IconForThisComponent;
-                //return Properties.Resources.AR_Lib_TopologyFace;
-                return null;
-            }
-        }
+        protected override System.Drawing.Bitmap Icon => Properties.Resources.TopologyFace;
 
         /// <summary>
         /// Gets the unique ID for this component. Do not change this ID after release.
         /// </summary>
-        public override Guid ComponentGuid
-        {
-            get { return new Guid("9044ea40-e6d9-4a9f-97ba-fb85bf5ed429"); }
-        }
+        public override Guid ComponentGuid => new Guid("9044ea40-e6d9-4a9f-97ba-fb85bf5ed429");
     }
 }

@@ -43,7 +43,7 @@ namespace Paramdigma.Core.Grasshopper.MeshUtilities
         protected override void SolveInstance(IGH_DataAccess DA)
         {
 
-            MeshGHData hE_MeshData = new MeshGHData();
+            MeshGhData hE_MeshData = new MeshGhData();
 
             if (!DA.GetData(0, ref hE_MeshData)) return;
 
@@ -78,23 +78,11 @@ namespace Paramdigma.Core.Grasshopper.MeshUtilities
         /// <summary>
         /// Provides an Icon for the component.
         /// </summary>
-        protected override System.Drawing.Bitmap Icon
-        {
-            get
-            {
-                //You can add image files to your project resources and access them like this:
-                // return Resources.IconForThisComponent;
-                //return Properties.Resources.AR_Lib_VertexCurvature;
-                return null;
-            }
-        }
+        protected override System.Drawing.Bitmap Icon => Properties.Resources.VertexCurvature;
 
         /// <summary>
         /// Gets the unique ID for this component. Do not change this ID after release.
         /// </summary>
-        public override Guid ComponentGuid
-        {
-            get { return new Guid("714d95a4-fde5-43dd-b4ac-7d600fd008de"); }
-        }
+        public override Guid ComponentGuid => new Guid("714d95a4-fde5-43dd-b4ac-7d600fd008de");
     }
 }
