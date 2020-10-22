@@ -16,7 +16,7 @@ jobs:
         uses: warrenbuckley/Setup-MSBuild@v1
 
       - name: Add GPR Source using nuget.exe
-        run: nuget sources add -name "GPR" -Source https://api.nuget.org/v3/index.json -Source https://nuget.pkg.github.com/Paramdigma/index.json -Username $GPR_USER -Password $GPR_TOKEN
+        run: nuget sources add -name "GPR" -Source https://api.nuget.org/v3/index.json -Source https://nuget.pkg.github.com/Paramdigma/index.json -Username ${{secrets.GPR_USER}} -Password ${{secrets.GPR_TOKEN}}
 
       - name: Setup NuGet
         run: nuget restore Paramdigma.Core.Grasshopper.sln
