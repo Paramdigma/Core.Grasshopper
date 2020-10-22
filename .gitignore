@@ -1,6 +1,6 @@
 packages
 .vs
-.idea
+.idea/
 **/bin
 **/obj
 nuget.config
