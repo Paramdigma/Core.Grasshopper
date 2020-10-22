@@ -8,11 +8,13 @@
     <Description>Description of Paramdigma.Core.Grasshopper</Description>
     <ApplicationIcon />
     <Win32Resource />
+    <AssemblyName>Paramdigma.Core.Grasshopper</AssemblyName>
+	<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
   
   <ItemGroup>
     <PackageReference Include="Paramdigma.Core" Version="0.0.9" />
-    <PackageReference Include="Grasshopper" Version="6.26.20147.6511" ><ExcludeAssets>runtime</ExcludeAssets></PackageReference>
+    <PackageReference Include="Grasshopper" Version="6.26.20147.6511"><ExcludeAssets>runtime</ExcludeAssets></PackageReference>
   </ItemGroup>
   
   <ItemGroup>
@@ -29,5 +31,9 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="Copy &quot;$(TargetPath)&quot; &quot;$(TargetDir)$(ProjectName).gha&quot;&#xA;Erase &quot;$(TargetPath)&quot;" />
+  </Target>
   
 </Project>

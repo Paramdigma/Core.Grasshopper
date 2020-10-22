@@ -1,6 +1,7 @@
 packages
 .vs
 .idea/
+**/.DS_Store
 **/bin
 **/obj
 nuget.config
