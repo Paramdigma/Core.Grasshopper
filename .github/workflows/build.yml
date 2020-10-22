@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Setup MSBuild
-        uses: warrenbuckley/Setup-MSBuild@v1
+        uses: microsoft/setup-msbuild@v1.0.2
 
       - name: Add GPR Source using nuget.exe
         run: nuget sources add -name "GPR" -Source https://api.nuget.org/v3/index.json -Source https://nuget.pkg.github.com/Paramdigma/index.json -Username ${{secrets.GPR_USER}} -Password ${{secrets.GPR_TOKEN}}
@@ -28,4 +28,4 @@ jobs:
         uses: actions/upload-artifact@v1.0.0
         with:
           name: Core.Grasshopper
-          path: bin\Release\
+          path: Paramdigma.Core.Grasshoper\bin\Release\
