@@ -28,4 +28,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: CoreGrasshopper
-          path: Core.Grasshopper\Paramdigma.Core.Grasshopper\bin\Release\
+          path: bin\Release\
