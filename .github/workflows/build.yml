@@ -23,3 +23,9 @@ jobs:
 
       - name: Build GH Components
         run: msbuild Paramdigma.Core.Grasshopper.sln /p:Configuration=Release
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v1.0.0
+        with:
+          name: Core.Grasshopper
+          path: bin\Release\Publish
