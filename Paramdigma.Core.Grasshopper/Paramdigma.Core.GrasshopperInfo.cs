@@ -7,7 +7,7 @@ namespace Paramdigma.Core.Grasshopper
 {
     public class ParamdigmaCoreGrasshopperInfo : GH_AssemblyInfo
     {
-        public override string Name => "Paramdigma.Core.Grasshopper Info";
+        public override string Name => "Paramdigma Core Components";
 
         //Return a 24x24 pixel bitmap to represent this GHA library.
         public override Bitmap Icon => null;
@@ -22,5 +22,6 @@ namespace Paramdigma.Core.Grasshopper
 
         //Return a string representing your preferred contact details.
         public override string AuthorContact => "info@paramdigma.com";
+        
     }
 }

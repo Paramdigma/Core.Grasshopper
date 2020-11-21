@@ -3,6 +3,10 @@
     "Paramdigma.Core.Grasshopper": {
       "commandName": "Executable",
       "executablePath": "C:\\Program Files\\Rhino 6\\System\\Rhino.exe"
+    },    
+    "Paramdigma.Core.Grasshopper.Mac": {
+      "commandName": "Executable",
+      "executablePath": "/Applications/Rhinoceros.app/Contents/MacOS/Rhinoceros"
     }
   }
 }

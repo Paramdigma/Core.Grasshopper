@@ -10,10 +10,11 @@
     <Win32Resource />
     <AssemblyName>Paramdigma.Core.Grasshopper</AssemblyName>
 	<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    
   </PropertyGroup>
   
   <ItemGroup>
-    <PackageReference Include="Paramdigma.Core" Version="0.0.9" />
+    <PackageReference Include="Paramdigma.Core" Version="0.1.1" />
     <PackageReference Include="Grasshopper" Version="6.26.20147.6511"><ExcludeAssets>runtime</ExcludeAssets></PackageReference>
   </ItemGroup>
   
@@ -33,7 +34,9 @@
   </ItemGroup>
   
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="Copy &quot;$(TargetPath)&quot; &quot;$(TargetDir)$(ProjectName).gha&quot;&#xA;Erase &quot;$(TargetPath)&quot;" />
+    <Exec Condition=" '$(OS)' == 'Windows_NT' " Command="Copy &quot;$(TargetPath)&quot; &quot;$(TargetDir)$(ProjectName).gha&quot;&#xA;Erase &quot;$(TargetPath)&quot;" />
+    <Exec Condition=" '$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::OSX)))' " Command="mv $(TargetPath) $(TargetDir)$(ProjectName).gha" />
+    <Exec Condition=" '$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Linux)))' " Command="" />
+
   </Target>
-  
 </Project>

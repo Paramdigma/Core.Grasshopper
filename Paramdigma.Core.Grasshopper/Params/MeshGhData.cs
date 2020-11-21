@@ -63,7 +63,7 @@ namespace Paramdigma.Core.Grasshopper
         {
             if (!(target is GH_Mesh))
                 return false;
-            RhinoConvert.RhinoMeshResult result = RhinoConvert.ToRhinoMesh(Value, out Rhino.Geometry.Mesh mesh);
+            var result = RhinoConvert.ToRhinoMesh(Value, out var mesh);
             if (result != RhinoConvert.RhinoMeshResult.OK)
                 return false;
             target = (Q) (object) new GH_Mesh(mesh);

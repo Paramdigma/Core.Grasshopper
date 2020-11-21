@@ -10,9 +10,9 @@ namespace Paramdigma.Core.Grasshopper.MeshTopology
         /// Initializes a new instance of the EdgeTopology class.
         /// </summary>
         public EdgeTopologyComponent()
-          : base("Edge Topology", "Edge Topo",
-              "Computes the edge adjacency data for the given mesh",
-              "Paramdigma", "Topology")
+            : base("Edge Topology", "Edge Topo",
+                "Computes the edge adjacency data for the given mesh",
+                "Paramdigma", "Topology")
         {
         }
 
@@ -58,10 +58,12 @@ namespace Paramdigma.Core.Grasshopper.MeshTopology
             {
                 evTopo.AddRange(topo.EdgeVertex[key], new GH.Kernel.Data.GH_Path(key));
             }
+
             foreach (int key in topo.EdgeEdge.Keys)
             {
                 eeTopo.AddRange(topo.EdgeEdge[key], new GH.Kernel.Data.GH_Path(key));
             }
+
             foreach (int key in topo.EdgeFace.Keys)
             {
                 efTopo.AddRange(topo.EdgeFace[key], new GH.Kernel.Data.GH_Path(key));
@@ -70,7 +72,6 @@ namespace Paramdigma.Core.Grasshopper.MeshTopology
             DA.SetDataTree(0, evTopo);
             DA.SetDataTree(1, eeTopo);
             DA.SetDataTree(2, efTopo);
-
         }
 
         /// <summary>
