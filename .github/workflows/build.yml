@@ -1,0 +1,31 @@
+name: "Build"
+on:
+  push:
+    branches:
+      - "master"
+      - "develop"
+      - "ci/**"
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v1.0.2
+
+      - name: Add GPR Source using nuget.exe
+        run: nuget sources add -name "GPR" -Source https://api.nuget.org/v3/index.json -Source https://nuget.pkg.github.com/Paramdigma/index.json -Username ${{secrets.GPR_USER}} -Password ${{secrets.GPR_TOKEN}}
+
+      - name: Setup NuGet
+        run: nuget restore Paramdigma.Core.Grasshopper.sln
+
+      - name: Build GH Components
+        run: msbuild Paramdigma.Core.Grasshopper.sln /p:Configuration=Release
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: CoreGrasshopper
+          path: D:\a\Core.Grasshopper\Core.Grasshopper\Paramdigma.Core.Grasshopper\bin\Release\
