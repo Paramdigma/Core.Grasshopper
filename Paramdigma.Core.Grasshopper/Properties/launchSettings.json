@@ -6,7 +6,8 @@
     },    
     "Paramdigma.Core.Grasshopper.Mac": {
       "commandName": "Executable",
-      "executablePath": "/Applications/Rhinoceros.app/Contents/MacOS/Rhinoceros"
+      "executablePath": "/Applications/Rhinoceros.app/Contents/MacOS/Rhinoceros",
+      "nativeDebugging": true
     }
   }
 }

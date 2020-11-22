@@ -1,5 +1,6 @@
 using Grasshopper.Kernel.Types;
 using Paramdigma.Core.HalfEdgeMesh;
+using Paramdigma.Core.Grasshopper.Converter;
 
 namespace Paramdigma.Core.Grasshopper
 {
@@ -19,8 +20,7 @@ namespace Paramdigma.Core.Grasshopper
         /// <param name="mesh">A Rhino Mesh</param>
         public MeshGhData(Rhino.Geometry.Mesh mesh)
         {
-            RhinoConvert.FromRhinoMesh(mesh, out Mesh coreMesh);
-            Value = coreMesh;
+            Value = mesh.ToCore();
         }
 
         /// <summary>
@@ -50,12 +50,11 @@ namespace Paramdigma.Core.Grasshopper
 
         public override bool CastFrom(object source)
         {
-            Rhino.Geometry.Mesh mesh = (source as GH_Mesh)?.Value;
+            var mesh = (source as GH_Mesh)?.Value;
             if (mesh == null)
                 return false;
-            if (RhinoConvert.FromRhinoMesh(mesh, out Mesh hE) != RhinoConvert.RhinoMeshResult.OK)
-                return false;
-            Value = hE;
+           
+            Value = mesh.ToCore();
             return true;
         }
 
@@ -63,10 +62,7 @@ namespace Paramdigma.Core.Grasshopper
         {
             if (!(target is GH_Mesh))
                 return false;
-            var result = RhinoConvert.ToRhinoMesh(Value, out var mesh);
-            if (result != RhinoConvert.RhinoMeshResult.OK)
-                return false;
-            target = (Q) (object) new GH_Mesh(mesh);
+            target = (Q) (object) new GH_Mesh(Value.ToRhino());
             return true;
         }
     }

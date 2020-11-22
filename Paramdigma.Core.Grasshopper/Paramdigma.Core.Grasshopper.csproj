@@ -13,6 +13,12 @@
     
   </PropertyGroup>
   
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DocumentationFile>bin\Debug\Paramdigma.Core.Grasshopper.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType></DebugType>
+  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Paramdigma.Core" Version="0.1.1" />
     <PackageReference Include="Grasshopper" Version="6.26.20147.6511"><ExcludeAssets>runtime</ExcludeAssets></PackageReference>
@@ -31,6 +37,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\Paramdigma.Core.Grasshopper.Converter\Paramdigma.Core.Grasshopper.Converter.csproj" />
   </ItemGroup>
   
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
