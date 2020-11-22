@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
     <RootNamespace>Paramdigma.Core.Grasshopper</RootNamespace>
-    <Version>1.0</Version>
+    <Version>0.1.0</Version>
     <Title>Paramdigma.Core.Grasshopper</Title>
     <Description>Description of Paramdigma.Core.Grasshopper</Description>
     <ApplicationIcon />
