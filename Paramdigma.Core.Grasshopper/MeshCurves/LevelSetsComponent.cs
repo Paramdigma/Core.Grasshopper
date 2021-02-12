@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Paramdigma.Core.HalfEdgeMesh;
 using Grasshopper.Kernel;
 using Grasshopper;
 using GH = Grasshopper;
@@ -53,7 +52,7 @@ namespace Paramdigma.Core.Grasshopper.MeshCurves
             if (!DA.GetDataList(1, scalarValues)) return;
             if (!DA.GetDataList(2, levels)) return;
 
-            Paramdigma.Core.HalfEdgeMesh.Mesh hE_Mesh = hE_MeshData.Value;
+            Geometry.Mesh hE_Mesh = hE_MeshData.Value;
 
             // Check for invalid inputs
             if (!hE_Mesh.IsTriangularMesh())
@@ -73,7 +72,7 @@ namespace Paramdigma.Core.Grasshopper.MeshCurves
 
             }
             // Assign values to mesh vertices
-            foreach (MeshVertex v in hE_Mesh.Vertices)
+            foreach (Geometry.MeshVertex v in hE_Mesh.Vertices)
             {   
                 if (v.UserValues.ContainsKey(key)) v.UserValues[key] = scalarValues[v.Index];
                 else v.UserValues.Add(key, scalarValues[v.Index]); 

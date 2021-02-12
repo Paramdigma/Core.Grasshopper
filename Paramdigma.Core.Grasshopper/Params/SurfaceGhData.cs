@@ -1,7 +1,7 @@
 using Grasshopper.Kernel.Types;
 using Paramdigma.Core.Geometry;
 using RG = Rhino.Geometry;
-using Paramdigma.Core.Grasshopper.Converter;
+using Paramdigma.Core.Conversion.Rhino;
 
 namespace Paramdigma.Core.Grasshopper
 {

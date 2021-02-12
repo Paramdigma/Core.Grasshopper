@@ -1,10 +1,9 @@
 using Grasshopper.Kernel.Types;
-using Paramdigma.Core.HalfEdgeMesh;
-using Paramdigma.Core.Grasshopper.Converter;
+using Paramdigma.Core.Conversion.Rhino;
 
 namespace Paramdigma.Core.Grasshopper
 {
-    public sealed class MeshGhData : GH_Goo<Mesh>
+    public sealed class MeshGhData : GH_Goo<Geometry.Mesh>
     {
         /// <summary>
         /// Constructs an empty MeshGHData object
@@ -27,7 +26,7 @@ namespace Paramdigma.Core.Grasshopper
         /// Constructs a MeshGHData object from an AR_Lib HalfEdgeMesh
         /// </summary>
         /// <param name="mesh">A Half-Edge Mesh</param>
-        public MeshGhData(Mesh mesh)
+        public MeshGhData(Geometry.Mesh mesh)
         {
             Value = mesh;
         }

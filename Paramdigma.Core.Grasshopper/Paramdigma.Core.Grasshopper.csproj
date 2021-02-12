@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 	
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
@@ -10,7 +10,8 @@
     <Win32Resource />
     <AssemblyName>Paramdigma.Core.Grasshopper</AssemblyName>
 	<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-    
+	<Configurations>Debug;Release;Debug Local</Configurations>
+	<Platforms>AnyCPU</Platforms>
   </PropertyGroup>
   
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -19,8 +20,14 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType></DebugType>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug Local|AnyCPU' ">
+    <DocumentationFile></DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <DefineConstants>TRACE;DEBUG;DEBUG_LOCAL;NETFRAMEWORK;NET472;</DefineConstants>
+  </PropertyGroup>
+
   <ItemGroup>
-    <PackageReference Include="Paramdigma.Core" Version="0.1.1" />
     <PackageReference Include="Grasshopper" Version="6.26.20147.6511"><ExcludeAssets>runtime</ExcludeAssets></PackageReference>
   </ItemGroup>
   
@@ -39,14 +46,19 @@
     </EmbeddedResource>
   </ItemGroup>
   
+  <ItemGroup Condition=" '$(Configuration)|$(Platform)' != 'Debug Local|AnyCPU' ">
+    <PackageReference Include="Paramdigma.Core" Version="0.1.2" />
+  </ItemGroup>
+  
   <ItemGroup>
-    <ProjectReference Include="..\Paramdigma.Core.Grasshopper.Converter\Paramdigma.Core.Grasshopper.Converter.csproj" />
+    <ProjectReference Include="..\..\Core\src\Paramdigma.Core.csproj" />
   </ItemGroup>
   
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Condition=" '$(OS)' == 'Windows_NT' " Command="Copy &quot;$(TargetPath)&quot; &quot;$(TargetDir)$(ProjectName).gha&quot;&#xA;Erase &quot;$(TargetPath)&quot;" />
-    <Exec Condition=" '$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::OSX)))' " Command="mv $(TargetPath) $(TargetDir)$(ProjectName).gha" />
+    <Exec Condition=" '$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::OSX)))' " Command="mv '$(TargetPath)' '$(TargetDir)$(ProjectName).gha'" />
     <Exec Condition=" '$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Linux)))' " Command="" />
-
   </Target>
+  
+  <Import Project="..\..\Core\Paramdigma.Core.Conversion.Rhino\Paramdigma.Core.Conversion.Rhino.projitems" Label="Shared" />
 </Project>

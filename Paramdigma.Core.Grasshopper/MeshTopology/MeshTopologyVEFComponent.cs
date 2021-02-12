@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Grasshopper.Kernel;
-using Paramdigma.Core.HalfEdgeMesh;
 using Rhino.Geometry;
 
 namespace Paramdigma.Core.Grasshopper.MeshTopology
@@ -42,44 +42,33 @@ namespace Paramdigma.Core.Grasshopper.MeshTopology
         /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            MeshGhData hE_MeshData = new MeshGhData();
+            var hE_MeshData = new MeshGhData();
 
             if (!DA.GetData(0, ref hE_MeshData)) return;
 
-            Paramdigma.Core.HalfEdgeMesh.Mesh hE_Mesh = hE_MeshData.Value;
+            var hE_Mesh = hE_MeshData.Value;
 
-            List<Point3d> vertices = new List<Point3d>();
-            List<Line> edges = new List<Line>();
-            List<Rhino.Geometry.Mesh> faces = new List<Rhino.Geometry.Mesh>();
+            var faces = new List<Rhino.Geometry.Mesh>();
 
-            foreach(MeshVertex v in hE_Mesh.Vertices)
+            var vertices = hE_Mesh.Vertices.Select(v => new Point3d(v.X, v.Y, v.Z)).ToList();
+            var edges = (from e in hE_Mesh.Edges let v1 = e.HalfEdge.Vertex let v2 = e.HalfEdge.Twin.Vertex select new Line(new Point3d(v1.X, v1.Y, v1.Z), new Point3d(v2.X, v2.Y, v2.Z))).ToList();
+            foreach (var f in  hE_Mesh.Faces)
             {
-                vertices.Add(new Point3d(v.X, v.Y, v.Z));
-            }
-            foreach (MeshEdge e in hE_Mesh.Edges)
-            {
-                MeshVertex v1 = e.HalfEdge.Vertex;
-                MeshVertex v2 = e.HalfEdge.Twin.Vertex;
-
-                edges.Add(new Line(new Point3d(v1.X, v1.Y, v1.Z), new Point3d(v2.X, v2.Y, v2.Z)));
-            }
-            foreach (Paramdigma.Core.HalfEdgeMesh.MeshFace f in  hE_Mesh.Faces)
-            {
-                List<MeshVertex> vs = f.AdjacentVertices();
+                var vs = f.AdjacentVertices();
             
-                List<int> faceVs = new List<int>();
-                List<Point3d> facePoints = new List<Point3d>();
+                var faceVs = new List<int>();
+                var facePoints = new List<Point3d>();
 
-                int vi = 0;
+                var vi = 0;
 
-                foreach(MeshVertex v in vs)
+                foreach(var v in vs)
                 {
                     facePoints.Add(new Point3d(v.X, v.Y, v.Z));
                     faceVs.Add(vi);
                     vi++;
                 }
 
-                Rhino.Geometry.Mesh m = new Rhino.Geometry.Mesh();
+                var m = new Mesh();
                 m.Vertices.AddVertices(facePoints);
 
                 if (vs.Count == 3) m.Faces.AddFace(0, 1, 2);

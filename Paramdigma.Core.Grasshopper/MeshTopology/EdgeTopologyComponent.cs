@@ -44,9 +44,9 @@ namespace Paramdigma.Core.Grasshopper.MeshTopology
 
             if (!DA.GetData(0, ref hE_MeshData)) return;
 
-            Paramdigma.Core.HalfEdgeMesh.Mesh hE_Mesh = hE_MeshData.Value;
+            Geometry.Mesh hE_Mesh = hE_MeshData.Value;
 
-            Paramdigma.Core.HalfEdgeMesh.MeshTopology topo = new Paramdigma.Core.HalfEdgeMesh.MeshTopology(hE_Mesh);
+            Geometry.MeshTopology topo = new Geometry.MeshTopology(hE_Mesh);
 
             topo.ComputeEdgeAdjacency();
 

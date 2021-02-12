@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using Grasshopper.Kernel;
-using Paramdigma.Core.Grasshopper.Converter;
+using Paramdigma.Core.Conversion.Rhino;
 using Rhino.Geometry;
 
 namespace Paramdigma.Core.Grasshopper

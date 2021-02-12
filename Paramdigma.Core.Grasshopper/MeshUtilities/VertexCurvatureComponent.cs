@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Grasshopper.Kernel;
-using Paramdigma.Core.HalfEdgeMesh;
 
 namespace Paramdigma.Core.Grasshopper.MeshUtilities
 {
@@ -47,7 +46,7 @@ namespace Paramdigma.Core.Grasshopper.MeshUtilities
 
             if (!DA.GetData(0, ref hE_MeshData)) return;
 
-            Paramdigma.Core.HalfEdgeMesh.Mesh hE_Mesh = hE_MeshData.Value;
+            Geometry.Mesh hE_Mesh = hE_MeshData.Value;
 
             if (!hE_Mesh.IsTriangularMesh())
             {
@@ -60,7 +59,7 @@ namespace Paramdigma.Core.Grasshopper.MeshUtilities
             List<double> K = new List<double>();
             List<double> km = new List<double>();
 
-            foreach (MeshVertex v in hE_Mesh.Vertices)
+            foreach (Geometry.MeshVertex v in hE_Mesh.Vertices)
             {
                 double[] k = Paramdigma.Core.Geometry.MeshGeometry.PrincipalCurvatures(v);
                 k1.Add(k[0]);

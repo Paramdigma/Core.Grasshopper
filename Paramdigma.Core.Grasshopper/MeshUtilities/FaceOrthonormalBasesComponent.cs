@@ -46,7 +46,7 @@ namespace Paramdigma.Core.Grasshopper.MeshNormals
 
             if (!DA.GetData(0, ref hE_MeshData)) return;
 
-            Paramdigma.Core.HalfEdgeMesh.Mesh hE_Mesh = hE_MeshData.Value;
+            Geometry.Mesh hE_Mesh = hE_MeshData.Value;
 
 
             if (!hE_Mesh.IsTriangularMesh())
@@ -58,7 +58,7 @@ namespace Paramdigma.Core.Grasshopper.MeshNormals
             List<Vector3d> meshE1 = new List<Vector3d>();
             List<Vector3d> meshE2 = new List<Vector3d>();
 
-            foreach (Paramdigma.Core.HalfEdgeMesh.MeshFace face in hE_Mesh.Faces)
+            foreach (Geometry.MeshFace face in hE_Mesh.Faces)
             {
                 List<Vector3d> rhinoV = new List<Vector3d>();
                 Paramdigma.Core.Geometry.Vector3d[] vects = PG.MeshGeometry.OrthonormalBases(face);

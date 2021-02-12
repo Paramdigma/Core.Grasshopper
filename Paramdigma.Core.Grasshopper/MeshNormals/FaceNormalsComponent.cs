@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Paramdigma.Core.HalfEdgeMesh;
 using Grasshopper.Kernel;
 using Rhino.Geometry;
 
@@ -47,7 +46,7 @@ namespace Paramdigma.Core.Grasshopper.MeshNormals
 
             if (!DA.GetData(0, ref hE_MeshData)) return;
 
-            Paramdigma.Core.HalfEdgeMesh.Mesh hE_Mesh = hE_MeshData.Value;
+            Geometry.Mesh hE_Mesh = hE_MeshData.Value;
 
             if (!hE_Mesh.IsTriangularMesh())
             {
@@ -60,7 +59,7 @@ namespace Paramdigma.Core.Grasshopper.MeshNormals
             List<Point3d> circumcenters = new List<Point3d>();
 
 
-            foreach (Paramdigma.Core.HalfEdgeMesh.MeshFace face in hE_Mesh.Faces)
+            foreach (Geometry.MeshFace face in hE_Mesh.Faces)
             {
                 Paramdigma.Core.Geometry.Vector3d v = Paramdigma.Core.Geometry.MeshGeometry.FaceNormal(face);
                 Paramdigma.Core.Geometry.Point3d centroid = Paramdigma.Core.Geometry.MeshGeometry.Centroid(face);

@@ -3,21 +3,31 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paramdigma.Core.Grasshopper", "Paramdigma.Core.Grasshopper\Paramdigma.Core.Grasshopper.csproj", "{CC642CDE-5385-492D-80BC-2E1CA2CA813E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paramdigma.Core.Grasshopper.Converter", "Paramdigma.Core.Grasshopper.Converter\Paramdigma.Core.Grasshopper.Converter.csproj", "{D7C04CED-ABE4-4F15-A638-6F0538FC0488}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paramdigma.Core", "..\Core\src\Paramdigma.Core.csproj", "{BF768B94-90BE-4D42-B34D-0FC254239F91}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Paramdigma.Core.Conversion.Rhino", "..\Core\Paramdigma.Core.Conversion.Rhino\Paramdigma.Core.Conversion.Rhino.shproj", "{760B48DD-2BD9-4366-9A1C-B907E344AD83}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+		Debug Local|Any CPU = Debug Local|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{CC642CDE-5385-492D-80BC-2E1CA2CA813E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CC642CDE-5385-492D-80BC-2E1CA2CA813E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC642CDE-5385-492D-80BC-2E1CA2CA813E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC642CDE-5385-492D-80BC-2E1CA2CA813E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D7C04CED-ABE4-4F15-A638-6F0538FC0488}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D7C04CED-ABE4-4F15-A638-6F0538FC0488}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D7C04CED-ABE4-4F15-A638-6F0538FC0488}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D7C04CED-ABE4-4F15-A638-6F0538FC0488}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC642CDE-5385-492D-80BC-2E1CA2CA813E}.Debug Local|Any CPU.ActiveCfg = Debug Local|Any CPU
+		{CC642CDE-5385-492D-80BC-2E1CA2CA813E}.Debug Local|Any CPU.Build.0 = Debug Local|Any CPU
+		{BF768B94-90BE-4D42-B34D-0FC254239F91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF768B94-90BE-4D42-B34D-0FC254239F91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF768B94-90BE-4D42-B34D-0FC254239F91}.Debug Local|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF768B94-90BE-4D42-B34D-0FC254239F91}.Debug Local|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.DotNetNamingPolicy = $1
+		$1.DirectoryNamespaceAssociation = PrefixedHierarchical
 	EndGlobalSection
 EndGlobal

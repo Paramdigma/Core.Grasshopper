@@ -43,7 +43,7 @@ namespace Paramdigma.Core.Grasshopper.MeshCurves
 
             if (!DA.GetData(0, ref hE_MeshData)) return;
 
-            Paramdigma.Core.HalfEdgeMesh.Mesh hE_Mesh = hE_MeshData.Value;
+            Geometry.Mesh hE_Mesh = hE_MeshData.Value;
 
             if (!hE_Mesh.IsTriangularMesh())
             {

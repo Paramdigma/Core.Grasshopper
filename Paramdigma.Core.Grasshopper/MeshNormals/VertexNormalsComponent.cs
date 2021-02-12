@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Paramdigma.Core.HalfEdgeMesh;
 using Grasshopper.Kernel;
 using Rhino.Geometry;
 
@@ -135,7 +134,7 @@ namespace Paramdigma.Core.Grasshopper
 
             if (!DA.GetData(0, ref hE_MeshData)) return;
 
-            Paramdigma.Core.HalfEdgeMesh.Mesh hE_Mesh = hE_MeshData.Value;
+            Geometry.Mesh hE_Mesh = hE_MeshData.Value;
 
             if (!hE_Mesh.IsTriangularMesh())
             {
@@ -145,7 +144,7 @@ namespace Paramdigma.Core.Grasshopper
 
             List<Vector3d> normals = new List<Vector3d>();
 
-            foreach (MeshVertex v in hE_Mesh.Vertices)
+            foreach (Geometry.MeshVertex v in hE_Mesh.Vertices)
             {
                 Paramdigma.Core.Geometry.Vector3d vect = new Paramdigma.Core.Geometry.Vector3d();
 
